@@ -15,15 +15,6 @@ export function Projects() {
       demo: "https://dylanb.ca",
     },
     {
-      title: "Portfolio Optimizer",
-      description:
-        "In development. Using Polygon API and popular + simulated quantum algorithms to solve portfolio optimization problems using an agentic AI approach",
-      image: "/projects/portfolio_optimizer.png?height=200&width=300",
-      technologies: ["Python", "Finance", "Quantitative Programming", "LangGraph", "AI","ML"],
-      github: "https://github.com/DylanB03/Portfolio-Optimization",
-      demo: "https://github.com/DylanB03/Portfolio-Optimization/blob/main/README.md",
-    },
-    {
       title: "Progress Check Website",
       description: "Enabled instructors to monitor and support over 100 student users real time with a MySQL relational database for a learning tracker.",
       image: "/projects/progress.png?height=200&width=300",

@@ -8,7 +8,7 @@ export function Education() {
       school: "Carleton University",
       location: "Ottawa, ON",
       period: "2024-2028",
-      gpa: "3.8/4.0",
+      gpa: "3.9/4.0",
       description: "Course work includes: Object-Oriented Programming, Algorithms and Datastructures",
       coursework: ["Advanced Algorithms", "C", "Python", "Java", "Object-Oriented Programming"],
     }

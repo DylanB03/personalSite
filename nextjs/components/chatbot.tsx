@@ -17,12 +17,14 @@ interface Message {
 }
 
 export function Chatbot() {
+  const botUnavailableMessage =
+    "Hi! Dylan's AI assistant is currently offline because the AWS Free Tier has ended, so this chatbot doesn't work right now. Please use the contact section to reach him directly."
+
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      content:
-        "Hi! I'm Dylans's AI assistant. I can answer questions about his skills, contact information, and availability. What would you like to know?",
+      content: botUnavailableMessage,
       sender: "bot",
       timestamp: new Date(),
     },
@@ -109,11 +111,9 @@ export function Chatbot() {
     } catch (error) {
       console.error("Error sending message:", error)
 
-      const fallbackResponse = getFallbackResponse(content.trim())
-
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: fallbackResponse,
+        content: botUnavailableMessage,
         sender: "bot",
         timestamp: new Date(),
       }
@@ -122,66 +122,6 @@ export function Chatbot() {
     } finally {
       setIsLoading(false)
     }
-  }
-
-  // Fallback responses for demo purposes
- const getFallbackResponse = (question: string): string => {
-    const lowerQuestion = question.toLowerCase()
-
-    if (lowerQuestion.includes("proficiencies") || lowerQuestion.includes("skills")) {
-      return (
-        "Dylan’s core technical proficiencies include:\n\n" +
-        "• Languages: Python, Java, C, C++, SQL, PHP, HTML, CSS, Linux\n" +
-        "• AI/ML & Data: PyTorch, Scikit-learn, Reinforcement Learning, LangChain/LangGraph, QLoRA, PEFT, Pandas, Numpy, Jupyter Notebooks\n" +
-        "• Cloud & DevOps: Kubernetes, Docker, Crossplane, AWS/EKS, Helm, Git\n" +
-        "• Backend: FastAPI, REST APIs, Neo4j (Knowledge Graphs), MCP servers, distributed & containerized systems\n" +
-        "• Frontend: React, Next.js\n\n" +
-        "He specializes in cloud-native backend systems, multi-agent LLM architectures, and knowledge-graph-powered retrieval systems."
-      )
-    }
-
-    if (lowerQuestion.includes("experience")) {
-      return (
-        "Dylan is a Software and AI/ML Developer with experience at Nokia Canada (May–Aug 2025).\n" +
-        "His work includes:\n\n" +
-        "• Developing multi-agent LLM systems using Google A2A and MCP protocols\n" +
-        "• Designing cloud-native, multi-service backends with FastAPI, Kubernetes, Docker, and Crossplane\n" +
-        "• Improving retrieval accuracy by 26% by transitioning from vector stores to Neo4j graph databases\n" +
-        "• Performing Supervised Fine Tuning, KTO, and GRPO via QLoRA/PEFT\n" +
-        "• Exposing structured/unstructured retrieval through semantic, lexical, and multimodal search APIs\n" +
-        "• Building MCP servers for LLM tool-calling over HTTP/SSE\n" +
-        "• Delivering production prototypes to internal engineering leadership\n" +
-        "• Mentoring two interns and improving sprint velocity and code quality\n\n" +
-        "Earlier experience includes FIRST Robotics (Java autonomous systems) and a Supervisor role at FarmBoy."
-      )
-    }
-
-    if (lowerQuestion.includes("projects")) {
-      return (
-        "Some of Dylan’s notable technical projects include:\n\n" +
-        "• Agent Portfolio Optimizer – AI-driven portfolio optimization agent using MCP, LangGraph, QSim, and Cirq; includes backtesting, analytics, and quantum-inspired algorithms\n" +
-        "• Next.js + MCP Web Application – A portfolio site integrating MCP tool-calling and LLM prompt engineering, deployed on AWS EKS\n" +
-        "• Full-Stack Portfolio App – Next.js frontend with a Python backend, CI/CD, and deployment on AWS EC2\n\n" +
-        "These projects highlight his strengths in cloud systems, LLM architectures, backend engineering, and AI/ML."
-      )
-    }
-
-    if (lowerQuestion.includes("technologies") || lowerQuestion.includes("tech")) {
-      return (
-        "Dylan works with a modern, production-grade technology stack:\n\n" +
-        "• Cloud & DevOps: Kubernetes, Docker, Crossplane, AWS/EKS, Helm\n" +
-        "• AI/ML: Reinforcement Learning, LangChain/LangGraph, QLoRA, PEFT, Knowledge Graphs (Neo4j), PyTorch, Scikit-learn\n" +
-        "• Backend: FastAPI, REST APIs, MCP servers, distributed systems\n" +
-        "• Frontend: React, Next.js\n" +
-        "• Languages: Python, Java, C, C++, SQL, PHP, HTML/CSS, Linux\n\n" +
-        "These tools power his work in multi-agent LLM systems, cloud-native microservices, automation, and intelligent retrieval pipelines."
-      )
-    }
-
-    return (
-      "I'm currently having trouble connecting to the server, but I can still help you learn more about Dylan's background.\n" +
-      "Try asking about his proficiencies, experience, projects, or technologies!"
-    )
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -199,19 +139,18 @@ export function Chatbot() {
         {/* Popup Message */}
         {showPopup && (
           <div className="absolute bottom-16 right-0 mb-2 animate-in slide-in-from-bottom-2 duration-300">
-            <div className="relative bg-white rounded-lg shadow-lg border p-3 max-w-xs">
+            <div className="relative bg-white rounded-xl shadow-lg border p-4 w-72 sm:w-80 max-w-[85vw]">
               <button
                 onClick={() => setShowPopup(false)}
                 className="absolute -top-1 -right-1 w-5 h-5 bg-gray-400 hover:bg-gray-500 text-white rounded-full flex items-center justify-center text-xs transition-colors"
               >
                 ×
               </button>
-              <p className="text-sm text-gray-700 pr-2">
-                👋 Hi! I'm Dylans's AI assistant. I can answer questions about his skills, experience, and availability.
-                Try asking me!
+              <p className="text-sm leading-snug text-gray-700 pr-2">
+                👋 Dylan's AI assistant is currently offline because the AWS Free Tier has ended.
               </p>
               {/* Arrow pointing to chat button */}
-              <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white border-r border-b transform rotate-45"></div>
+              <div className="absolute -bottom-2 right-8 w-4 h-4 bg-white border-r border-b transform rotate-45"></div>
             </div>
           </div>
         )}
@@ -306,7 +245,7 @@ export function Chatbot() {
 
           {/* Sample Questions */}
           <div className="p-4 border-t bg-gray-50">
-            <p className="text-sm text-gray-600 mb-2">Try asking:</p>
+            <p className="text-sm text-gray-600 mb-2">Chatbot is currently unavailable.</p>
             <div className="flex flex-wrap gap-2">
               {sampleQuestions.map((question, index) => (
                 <Button
@@ -315,7 +254,7 @@ export function Chatbot() {
                   size="sm"
                   onClick={() => handleSampleQuestion(question)}
                   className="text-xs h-7 px-2"
-                  disabled={isLoading}
+                  disabled={true}
                 >
                   {question}
                 </Button>
@@ -329,11 +268,11 @@ export function Chatbot() {
               <Input
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Ask me anything about Dylans..."
-                disabled={isLoading}
+                placeholder="Chatbot unavailable (AWS Free Tier ended)"
+                disabled={true}
                 className="flex-1"
               />
-              <Button type="submit" size="sm" disabled={isLoading || !inputValue.trim()}>
+              <Button type="submit" size="sm" disabled={true}>
                 <Send className="h-4 w-4" />
               </Button>
             </form>
