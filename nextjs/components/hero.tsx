@@ -15,10 +15,9 @@ export function Hero() {
             className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white shadow-lg object-cover"
           />
           <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 mb-4">Dylan Butz</h1>
-          <h2 className="text-xl sm:text-2xl text-gray-600 mb-6">Software Engineering Student</h2>
+          <h2 className="text-xl sm:text-2xl text-gray-600 mb-6">Software Engineering. Building with AI.</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            Passionate about building AI agents and software applications.
-            Experienced in modern cloud and AI technologies such as A2A, MCP, Knowledge Graphs and Kubernetes.
+            Building AI agents and software applications in the cloud.
           </p>
         </div>
 

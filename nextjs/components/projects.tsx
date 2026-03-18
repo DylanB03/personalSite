@@ -1,82 +1,74 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Github, ExternalLink } from "lucide-react"
+import { Github, ArrowUpRight } from "lucide-react"
 
-export function Projects() {
-  const projects = [
+type Project = {
+  title: string
+  description: string
+  toolsUsed: string
+  image: string
+  github: string
+}
+
+export function Projects({ showViewAllLink = false }: { showViewAllLink?: boolean }) {
+  const projects: Project[] = [
     {
-      title: "AWS Portfolio Site",
+      title: "Job scheduler",
       description:
-        "Full-stack website using Next.js and an AWS EC2 hosted python backend to answer questions about me",
-      image: "/projects/portfoliosite.png?height=200&width=300",
-      technologies: ["Python", "AWS", "Next.js"],
-      github: "https://github.com/DylanB03/AWS-Portfolio-Site",
-      demo: "https://dylanb.ca",
+        "Built a custom gymnasium environment for a job queue, using wait times and priority levels. Trained a model with PPO reinforcement learning using StableBaseline3, and a custom built PPO agent using PyTorch. Benchmarked model performance against heuristic baselines with graphical analysis in MatPlotLib.",
+      toolsUsed: "Tools Used: Python, PyTorch, StableBaselines3, NumPy, Jupyter Notebook.",
+      image: "/projects/job-scheduler.png?height=200&width=300",
+      github: "https://github.com/DylanB03/Job-Scheduler",
     },
     {
-      title: "Progress Check Website",
-      description: "Enabled instructors to monitor and support over 100 student users real time with a MySQL relational database for a learning tracker.",
-      image: "/projects/progress.png?height=200&width=300",
-      technologies: ["Linux", "MySQL", "PHP", "Apache", "Relational DB"],
-      github: "https://github.com/DylanB03/ProgressCheckWebsite",
-      demo: "https://github.com/DylanB03/ProgressCheckWebsite/blob/main/README.md",
-    }
+      title: "Transport Times",
+      description:
+        "Developed a web application to view public transportation times and google calendar events. Synced backend with Google Cloud Platform, public transportation, and map tiling API’s. Allowed users to select stations to monitor using a map interface with MapLibre.",
+      toolsUsed: "Tools Used: Python, GCP, JavaScript, HTML, CSS.",
+      image: "/projects/transport-times.png?height=200&width=300",
+      github: "https://github.com/DylanB03/transportTimes",
+    },
   ]
 
   return (
-    <section id="projects" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A showcase of my recent work and personal projects that demonstrate my skills and creativity.
-          </p>
-        </div>
+    <section aria-label="Projects" className="space-y-4">
+      <h2 className="text-xs font-medium uppercase tracking-wider text-foreground/80">Projects</h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow overflow-hidden">
-              <div className="aspect-video overflow-hidden">
-                <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
+      <ul className="space-y-3">
+        {projects.map((project) => (
+          <li key={project.title} className="flex gap-3 items-start">
+            <img
+              src={project.image || "/placeholder.svg"}
+              alt={project.title}
+              className="w-16 h-16 object-cover rounded-md flex-shrink-0"
+            />
+            <div className="min-w-0">
+              <div className="flex items-center gap-2">
+                <div className="font-medium text-foreground">{project.title}</div>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${project.title} GitHub`}
+                  className="inline-flex text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Github className="h-4 w-4" />
+                </a>
               </div>
-              <CardHeader>
-                <CardTitle className="text-xl text-gray-900">{project.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="outline">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-                <div className="flex gap-3">
-                  <Button variant="outline" size="sm" asChild className="bg-orange-600 hover:bg-orange-700">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4 mr-2" />
-                      Code
-                    </a>
-                  </Button>
-                  {project.demo && (
-                    <Button size="sm" asChild className="bg-orange-600 hover:bg-orange-700">
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Demo
-                      </a>
-                    </Button>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
+              <p className="text-sm text-muted-foreground">{project.description}</p>
+              <p className="text-sm text-muted-foreground">{project.toolsUsed}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      {showViewAllLink && (
+        <a
+          href="/projects"
+          className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+        >
+          View all projects
+          <ArrowUpRight className="h-4 w-4" />
+        </a>
+      )}
     </section>
   )
 }

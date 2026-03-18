@@ -1,9 +1,8 @@
-import { Experience } from "@/components/experience"
 import { Projects } from "@/components/projects"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { FooterLinks } from "@/components/footer-links"
 
-export default function Home() {
+export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <header className="max-w-2xl mx-auto px-6 py-8 flex items-center justify-between">
@@ -14,16 +13,14 @@ export default function Home() {
       </header>
 
       <div className="max-w-2xl mx-auto px-6 pb-16">
-        <p className="text-sm text-muted-foreground">
-          Software Engineering. Building with AI.
-        </p>
-        <p className="mt-2 text-sm text-muted-foreground">
-          I play guitar, video games (top 0.1% in Valorant and League), and sports
-        </p>
+        <div className="pt-2">
+          <a href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            ← Home
+          </a>
+        </div>
 
-        <div className="mt-10 space-y-12">
-          <Experience />
-          <Projects showViewAllLink />
+        <div className="mt-8">
+          <Projects />
         </div>
 
         <FooterLinks />
@@ -31,3 +28,4 @@ export default function Home() {
     </main>
   )
 }
+
