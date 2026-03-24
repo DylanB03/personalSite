@@ -8,8 +8,7 @@ type Project = {
   github: string
 }
 
-export function Projects({ showViewAllLink = false }: { showViewAllLink?: boolean }) {
-  const projects: Project[] = [
+const mainProjects: Project[] = [
     {
       title: "Job scheduler",
       description:
@@ -26,7 +25,37 @@ export function Projects({ showViewAllLink = false }: { showViewAllLink?: boolea
       image: "/projects/transport-times.png?height=200&width=300",
       github: "https://github.com/DylanB03/transportTimes",
     },
-  ]
+    {
+      title: "webCrawler",
+      description:
+        "Built a desktop application to crawl websites and extract visual assets including fonts, colors, images, and icons. Implemented recursive same-domain crawling with robots.txt safeguards and bounded limits, a PySide6 tabbed UI with local project persistence, and HTML/CSS extraction using BeautifulSoup, lxml, and tinycss2.",
+      toolsUsed: "Tools Used: Python, PySide6, BeautifulSoup, lxml, tinycss2.",
+      image: "/projects/webcrawler.png?height=200&width=300",
+      github: "https://github.com/DylanB03/webCrawler",
+    },
+]
+
+/** Shown only on `/projects` (not the home page project list). */
+const projectsPageOnly: Project[] = [
+  {
+    title: "Progress Check",
+    description:
+      "Built in grade 10 as a web application for educators to track student progress on assignments through classroom dashboards, join codes, and color-coded submissions. Implemented server-side PHP with a relational SQL database for accounts, classes, assignments, and student responses.",
+    toolsUsed: "Tools Used: PHP, JavaScript, HTML, CSS, MySQL.",
+    image: "/projects/progress-check.png?height=200&width=300",
+    github: "https://github.com/DylanB03/ProgressCheckWebsite",
+  },
+]
+
+export function Projects({
+  showViewAllLink = false,
+  projectsPageExtras = false,
+}: {
+  showViewAllLink?: boolean
+  /** Extra entries appended at the bottom on the full projects page only. */
+  projectsPageExtras?: boolean
+}) {
+  const projects = [...mainProjects, ...(projectsPageExtras ? projectsPageOnly : [])]
 
   return (
     <section aria-label="Projects" className="space-y-4">

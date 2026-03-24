@@ -20,7 +20,7 @@ export default function ProjectsPage() {
         </div>
 
         <div className="mt-8">
-          <Projects />
+          <Projects projectsPageExtras />
         </div>
 
         <FooterLinks />
