@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { GeistSans } from "geist/font"
 import "./globals.css"
-import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider"
 
 const geistSans = GeistSans
@@ -10,16 +9,16 @@ const geistSans = GeistSans
 export const metadata: Metadata = {
   title: "Dylan Butz - Software Engineering Portfolio",
   description:
-    "Software engineer focused on AI/ML work, including RL and agentic software with MCP servers and autonomous agents.",
-  keywords: "software engineer, full stack developer, react, node.js, aws, portfolio",
+    "Software engineering portfolio featuring AI systems, full-stack applications, and developer tools built by Dylan Butz.",
+  keywords: "Dylan Butz, software engineer, AI developer, full stack developer, portfolio",
   authors: [{ name: "Dylan Butz" }],
   openGraph: {
     title: "Dylan Butz - Software Engineering Portfolio",
     description:
-      "Software engineer focused on AI/ML work, including RL and agentic software with MCP servers and autonomous agents.",
+      "Software engineering portfolio featuring AI systems, full-stack applications, and developer tools built by Dylan Butz.",
     type: "website",
   },
-    generator: 'dylanb'
+  generator: "Next.js",
 }
 
 export default function RootLayout({
@@ -32,7 +31,6 @@ export default function RootLayout({
       <body className={geistSans.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           {children}
-          <Toaster />
         </ThemeProvider>
       </body>
     </html>
