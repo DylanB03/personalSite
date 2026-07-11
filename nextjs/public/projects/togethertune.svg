@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">TogetherTune</title>
+  <rect width="200" height="200" rx="24" fill="#241a3a"/>
+  <circle cx="100" cy="100" r="66" fill="#382754" stroke="#a98ddd" stroke-width="6"/>
+  <path d="M86 61v67a17 17 0 1 1-10-15V75l52-12v53a17 17 0 1 1-10-15V51L86 61Z" fill="#f0eaff"/>
+  <path d="M45 50c-10 11-16 25-18 40M155 50c10 11 16 25 18 40M45 150c-10-11-16-25-18-40M155 150c10-11 16-25 18-40" fill="none" stroke="#d85b8d" stroke-width="7" stroke-linecap="round"/>
+</svg>

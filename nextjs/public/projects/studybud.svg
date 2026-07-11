@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">StudyBud</title>
+  <rect width="200" height="200" rx="24" fill="#e8f0ff"/>
+  <path d="M48 51c21-7 38-2 52 12 14-14 31-19 52-12v98c-21-7-38-2-52 12-14-14-31-19-52-12V51Z" fill="#fff" stroke="#315cb5" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M100 64v97" stroke="#315cb5" stroke-width="8"/>
+  <path d="m141 26 4 12 12 4-12 4-4 12-4-12-12-4 12-4 4-12Z" fill="#f3b93f"/>
+  <path d="M63 78h22M63 99h22M115 78h22M115 99h22" stroke="#8aa6dc" stroke-width="6" stroke-linecap="round"/>
+</svg>

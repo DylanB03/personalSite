@@ -9,34 +9,50 @@ type Project = {
 }
 
 const mainProjects: Project[] = [
-    {
-      title: "Job scheduler",
-      description:
-        "Built a custom gymnasium environment for a job queue, using wait times and priority levels. Trained a model with PPO reinforcement learning using StableBaseline3, and a custom built PPO agent using PyTorch. Benchmarked model performance against heuristic baselines with graphical analysis in MatPlotLib.",
-      toolsUsed: "Tools Used: Python, PyTorch, StableBaselines3, NumPy, Jupyter Notebook.",
-      image: "/projects/job-scheduler.png?height=200&width=300",
-      github: "https://github.com/DylanB03/Job-Scheduler",
-    },
-    {
-      title: "Transport Times",
-      description:
-        "Developed a web application to view public transportation times and google calendar events. Synced backend with Google Cloud Platform, public transportation, and map tiling API’s. Allowed users to select stations to monitor using a map interface with MapLibre.",
-      toolsUsed: "Tools Used: Python, GCP, JavaScript, HTML, CSS.",
-      image: "/projects/transport-times.png?height=200&width=300",
-      github: "https://github.com/DylanB03/transportTimes",
-    },
-    {
-      title: "webCrawler",
-      description:
-        "Built a desktop application to crawl websites and extract visual assets including fonts, colors, images, and icons. Implemented recursive same-domain crawling with robots.txt safeguards and bounded limits, a PySide6 tabbed UI with local project persistence, and HTML/CSS extraction using BeautifulSoup, lxml, and tinycss2.",
-      toolsUsed: "Tools Used: Python, PySide6, BeautifulSoup, lxml, tinycss2.",
-      image: "/projects/webcrawler.png?height=200&width=300",
-      github: "https://github.com/DylanB03/webCrawler",
-    },
+  {
+    title: "StudyBud",
+    description:
+      "Built a local-first desktop app that turns course PDFs into structured topics, page-cited answers, flashcards, and difficulty-based practice sets. Added selective OCR for poorly extracted pages, persistent study artifacts, and secure OS-keychain credential storage.",
+    toolsUsed: "Tools Used: Electron, React, TypeScript, SQLite, PDF.js, PyMuPDF, Tesseract, OpenAI, Ollama.",
+    image: "/projects/studybud.svg",
+    github: "https://github.com/DylanB03/StudyBud",
+  },
+  {
+    title: "TogetherTune",
+    description:
+      "Launched a Chrome extension for synchronized YouTube Music listening parties with shared queues, invite links, and host controls. Built real-time clock sync, reconnection, session recovery, host transfer, rate limiting, and end-to-end room testing.",
+    toolsUsed: "Tools Used: TypeScript, React, WXT, Cloudflare Workers, Durable Objects, KV, WebSockets, Vitest, Playwright.",
+    image: "/projects/togethertune.svg",
+    github: "https://github.com/DylanB03/Youtube-Music-Party-Extension",
+  },
 ]
 
 /** Shown only on `/projects` (not the home page project list). */
 const projectsPageOnly: Project[] = [
+  {
+    title: "Job Scheduler",
+    description:
+      "Built a custom Gymnasium environment for a priority-based job queue. Trained PPO agents with Stable-Baselines3 and PyTorch, then benchmarked their performance against heuristic baselines.",
+    toolsUsed: "Tools Used: Python, PyTorch, Stable-Baselines3, NumPy, Jupyter Notebook.",
+    image: "/projects/job-scheduler.png?height=200&width=300",
+    github: "https://github.com/DylanB03/Job-Scheduler",
+  },
+  {
+    title: "Transport Times",
+    description:
+      "Developed a web app for viewing public transportation times and Google Calendar events. Integrated Google Cloud, transit, and map-tile APIs with a MapLibre station-selection interface.",
+    toolsUsed: "Tools Used: Python, GCP, JavaScript, HTML, CSS.",
+    image: "/projects/transport-times.png?height=200&width=300",
+    github: "https://github.com/DylanB03/transportTimes",
+  },
+  {
+    title: "webCrawler",
+    description:
+      "Built a desktop app that recursively crawls websites and extracts fonts, colors, images, and icons, with robots.txt safeguards, bounded crawling, and local project persistence.",
+    toolsUsed: "Tools Used: Python, PySide6, BeautifulSoup, lxml, tinycss2.",
+    image: "/projects/webcrawler.png?height=200&width=300",
+    github: "https://github.com/DylanB03/webCrawler",
+  },
   {
     title: "Progress Check",
     description:

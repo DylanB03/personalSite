@@ -1,8 +1,8 @@
 export function Experience() {
   const work = [
+    { role: "AI Software Developer", company: "JSI Telecom" },
     { role: "Software and AI/ML Developer", company: "Nokia" },
     { role: "Software Developer", company: "FIRST Robotics Earl of March" },
-    { role: "Supervisor", company: "Farmboy Grocery Store" },
   ]
 
   return (
