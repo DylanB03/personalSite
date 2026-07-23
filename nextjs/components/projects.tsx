@@ -20,10 +20,18 @@ const mainProjects: Project[] = [
   {
     title: "TogetherTune",
     description:
-      "Launched a Chrome extension for synchronized YouTube Music listening parties with shared queues, invite links, and host controls. Built real-time clock sync, reconnection, session recovery, host transfer, rate limiting, and end-to-end room testing.",
+      "Published a Chrome extension serving real users with synchronized YouTube Music playback, shared queues, invite links, and host-controlled permissions. Engineered an authoritative real-time backend with clock sync, automatic reconnection, session recovery, and host transfer, then hardened it with one-time connection tickets, rate limiting, runtime protocol validation, and CI-backed two-client testing.",
     toolsUsed: "Tools Used: TypeScript, React, WXT, Cloudflare Workers, Durable Objects, KV, WebSockets, Vitest, Playwright.",
     image: "/projects/togethertune.svg",
     github: "https://github.com/DylanB03/Youtube-Music-Party-Extension",
+  },
+  {
+    title: "Chudvis",
+    description:
+      "Led development of a contact-free VS Code extension on a four-person team, combining webcam-based gaze tracking, hand gestures, and voice commands for code navigation and guarded AI-assisted editing. Built the TypeScript extension and native Python perception runtime around a token-authenticated local protocol, with calibration, hold-gated controls, local processing, explicit edit approval, and undo safeguards.",
+    toolsUsed: "Tools Used: TypeScript, Python, VS Code Extension API, Backboard, ElevenLabs.",
+    image: "/projects/chudvis.png",
+    github: "https://github.com/zhe-jac/hackthe6ix",
   },
 ]
 
