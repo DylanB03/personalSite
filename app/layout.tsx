@@ -1,10 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { GeistSans } from "geist/font"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-
-const geistSans = GeistSans
 
 export const metadata: Metadata = {
   title: "Dylan Butz - Software Engineering Portfolio",
@@ -28,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={geistSans.className}>
+      <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           {children}
         </ThemeProvider>

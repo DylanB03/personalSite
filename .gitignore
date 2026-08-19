@@ -7,3 +7,25 @@
 **/venv/
 **/.env.local
 *.pem
+
+# dependencies
+/node_modules/
+
+# Next.js build output
+/.next/
+/out/
+/build/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local environment and hosting state
+.env*
+.vercel/
+
+# generated TypeScript files
+*.tsbuildinfo
+next-env.d.ts

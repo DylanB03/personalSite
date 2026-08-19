@@ -6,6 +6,7 @@ The site includes:
 
 - Selected work experience
 - Featured and archived software projects
+- Long-form technical project articles
 - Links to GitHub, LinkedIn, and email
 - Light and dark themes
 
@@ -19,7 +20,6 @@ Requirements:
 Install the locked dependencies and start the development server:
 
 ```bash
-cd nextjs
 npm ci
 npm run dev
 ```
@@ -31,7 +31,6 @@ No environment variables are required to view the portfolio pages.
 ## Production build
 
 ```bash
-cd nextjs
 npm run build
 npm start
 ```
@@ -39,9 +38,8 @@ npm start
 ## Project structure
 
 ```text
-nextjs/
-├── app/          # Pages and global styles
-├── components/   # Portfolio sections and theme controls
-├── public/       # Project thumbnails
-└── package.json  # Scripts and dependencies
+app/          # Pages, project articles, and global styles
+components/   # Portfolio sections, navigation, and diagrams
+public/       # Project thumbnails and local font assets
+package.json  # Scripts and dependencies
 ```

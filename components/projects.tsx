@@ -1,4 +1,5 @@
 import { Github, ArrowUpRight } from "lucide-react"
+import Link from "next/link"
 
 type Project = {
   title: string
@@ -6,9 +7,19 @@ type Project = {
   toolsUsed: string
   image: string
   github: string
+  href?: string
 }
 
 const mainProjects: Project[] = [
+  {
+    title: "Pokémon Battler",
+    description:
+      "Trained a Qwen2.5-0.5B battle policy with a structured mechanics sidecar, then tested the frozen model across 1,000 public ranked Pokémon Showdown games with a win rate above 50%.",
+    toolsUsed: "Tools Used: Python, PyTorch, Transformers, QLoRA, Pokémon Showdown, poke-env.",
+    image: "/projects/pokemon-battler.svg",
+    github: "https://github.com/DylanB03/pokemonBattlerML",
+    href: "/projects/pokemon-battler",
+  },
   {
     title: "StudyBud",
     description:
@@ -25,6 +36,10 @@ const mainProjects: Project[] = [
     image: "/projects/togethertune.svg",
     github: "https://github.com/DylanB03/Youtube-Music-Party-Extension",
   },
+]
+
+/** Shown only on `/projects` (not the home page project list). */
+const projectsPageOnly: Project[] = [
   {
     title: "Chudvis",
     description:
@@ -33,10 +48,6 @@ const mainProjects: Project[] = [
     image: "/projects/chudvis.png",
     github: "https://github.com/zhe-jac/hackthe6ix",
   },
-]
-
-/** Shown only on `/projects` (not the home page project list). */
-const projectsPageOnly: Project[] = [
   {
     title: "Job Scheduler",
     description:
@@ -74,16 +85,18 @@ const projectsPageOnly: Project[] = [
 export function Projects({
   showViewAllLink = false,
   projectsPageExtras = false,
+  heading = "Projects",
 }: {
   showViewAllLink?: boolean
   /** Extra entries appended at the bottom on the full projects page only. */
   projectsPageExtras?: boolean
+  heading?: string
 }) {
   const projects = [...mainProjects, ...(projectsPageExtras ? projectsPageOnly : [])]
 
   return (
     <section aria-label="Projects" className="space-y-4">
-      <h2 className="text-xs font-medium uppercase tracking-wider text-foreground/80">Projects</h2>
+      <h2 className="text-xs font-medium uppercase tracking-wider text-foreground/80">{heading}</h2>
 
       <ul className="space-y-3">
         {projects.map((project) => (
@@ -95,7 +108,13 @@ export function Projects({
             />
             <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <div className="font-medium text-foreground">{project.title}</div>
+                {project.href ? (
+                  <Link className="font-medium text-foreground hover:underline underline-offset-4" href={project.href}>
+                    {project.title}
+                  </Link>
+                ) : (
+                  <div className="font-medium text-foreground">{project.title}</div>
+                )}
                 <a
                   href={project.github}
                   target="_blank"
