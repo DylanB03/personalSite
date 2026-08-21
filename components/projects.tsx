@@ -14,7 +14,7 @@ const mainProjects: Project[] = [
   {
     title: "Pokémon Battler",
     description:
-      "Trained a Qwen2.5-0.5B battle policy with a structured mechanics sidecar, then tested the frozen model across 1,000 public ranked Pokémon Showdown games with a win rate above 50%.",
+      "Trained Qwen2.5-0.5B to choose Pokémon battle actions, paired it with a second neural network that compares legal moves using battle mechanics, and finished 1,000 public ranked Pokémon Showdown games with a positive win rate.",
     toolsUsed: "Tools Used: Python, PyTorch, Transformers, QLoRA, Pokémon Showdown, poke-env.",
     image: "/projects/pokemon-battler.svg",
     github: "https://github.com/DylanB03/pokemonBattlerML",

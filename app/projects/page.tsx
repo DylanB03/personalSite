@@ -27,8 +27,8 @@ export default function ProjectsPage() {
                 <p className="project-post-meta">Machine learning · August 2026</p>
                 <h2>Training a 0.5B Pokémon model to win on the ranked ladder</h2>
                 <p>
-                  I rebuilt the loss, the state representation, and the data pipeline before a frozen policy
-                  finished with a win rate above 50% across 1,000 public ranked Showdown games.
+                  I rebuilt the loss, the state representation, and the data pipeline before one unchanged model
+                  finished 1,000 public ranked Showdown games with a positive win rate.
                 </p>
               </div>
               <span aria-hidden="true" className="project-post-arrow">↗</span>
